@@ -23,4 +23,4 @@ Monitor Patch Compliance
 
         1. Missing updates
         2. Compliance percentage
-        3. Deployment history
+        3. Deployment history# terraform-azure-assignment01
