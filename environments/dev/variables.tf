@@ -49,3 +49,7 @@ variable "admin_username" {
   description = "VM admin username"
   type        = string
 }
+variable "schedule_time" {
+  description = "Schedule time for update management"
+  type        = string
+}
