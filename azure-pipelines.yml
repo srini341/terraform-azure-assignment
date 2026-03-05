@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 trigger:
   branches:
     include:
@@ -53,60 +53,3 @@ stages:
     - script: |
         cd environments/dev
         terraform apply -auto-approve
-=======
-trigger:
-  branches:
-    include:
-      - main
-
-pool:
-  vmImage: 'ubuntu-latest'
-
-variables:
-  TF_VERSION: '1.5.7'
-
-stages:
-
-- stage: Validate
-  jobs:
-  - job: TerraformValidate
-    steps:
-    - task: TerraformInstaller@1
-      inputs:
-        terraformVersion: $(TF_VERSION)
-
-    - script: |
-        terraform init -backend=false
-        terraform validate
-      displayName: 'Terraform Validate'
-
-- stage: Scan
-  jobs:
-  - job: Security Scan
-    steps:
-    - script: |
-        curl -s https://raw.githubusercontent.com/aquasecurity/tfsec/master/scripts/install_linux.sh | bash
-        tfsec .
-      displayName: 'Run tfsec Security Scan'
-
-- stage: Plan
-  jobs:
-  - job: TerraformPlan
-    steps:
-    - script: |
-        cd environments/dev
-        terraform init
-        terraform plan -out=tfplan
-      displayName: 'Terraform Plan'
-
-- stage: Apply
-  condition: succeeded()
-  approval: manual
-  jobs:
-  - job: TerraformApply
-    steps:
-    - script: |
-        cd environments/dev
-        terraform apply -auto-approve
->>>>>>> dd304197289455949ea698904b0616c501713f52
-      displayName: 'Terraform Apply'
