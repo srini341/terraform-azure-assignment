@@ -144,4 +144,7 @@ Commercial support is available at
 <img width="1725" height="733" alt="image" src="https://github.com/user-attachments/assets/22ea4edf-0bab-4f85-9909-59b64b5752b8" />
 
 
+Architecture Diagram
+
+<img width="1536" height="1024" alt="image" src="https://github.com/user-attachments/assets/1b4741e6-74ec-46ab-b826-6e9a9362da5f" />
 
